@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "name": "Gaz-A",
+        "description": "Gaz-A description",
+        "section": "auto"
+    },
+    {
+        "id": "2",
+        "name": "Gaz-AA",
+        "description": "Gaz-AA description",
+        "section": "auto"
+    },
+    {
+        "id": "3",
+        "name": "BT-4",
+        "description": "BT-4 description",
+        "section": "tanks"
+    },
+    {
+        "id": "4",
+        "name": "IS-1",
+        "description": "IS-1 description",
+        "section": "tanks"
+    },
+    {
+        "id": "5",
+        "name": "IS-2",
+        "description": "IS-2 description",
+        "section": "tanks"
+    }
+]
