@@ -11,6 +11,8 @@ const encode = (data) => {
         .join("&");
 }
 
+const FORM_NAME = 'userFullName';
+
 class ModalForm extends PureComponent {
     constructor(props) {
         super(props);
@@ -35,7 +37,7 @@ class ModalForm extends PureComponent {
     onSubmit(e) {
         e.preventDefault();
 
-        const formData = encode({ 'form-name': 'userFullName', ...this.state });
+        const formData = encode({ 'form-name': FORM_NAME, ...this.state });
         console.log(formData);
 
         fetch('/', {
@@ -52,8 +54,8 @@ class ModalForm extends PureComponent {
         const {firstName, lastName} = this.state;
 
         return (
-            <form action="/" name="userFullName" method="post" data-netlify="true">
-                <input type="hidden" name="form-name" value="userFullName" />
+            <form name={FORM_NAME} action="/" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value={FORM_NAME} />
                 <p>
                     <StyledLabel htmlFor="firstName">First Name:</StyledLabel>
                     <input
@@ -75,7 +77,7 @@ class ModalForm extends PureComponent {
                     />
                 </p>
                 <p>
-                    <button type="submit">
+                    <button type="submit" onClick={this.onSubmit}>
                         Send
                     </button>
                 </p>
