@@ -1,89 +1,70 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 import styled from 'styled-components';
+import Layout from '../components/layout';
+import ModalForm from '../components/modal-form';
 
-const StyledLabel = styled.span`
-    display: block;
+const StyledModalOverflow = styled.div`
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
 `;
 
-const encode = (data) => {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-}
+const StyledModal = styled.div`
+    width: 800px;
+`;
 
-const FORM_NAME = 'userFullName';
-
-class ModalForm extends PureComponent {
+class IndexPage extends PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
-            firstName: '',
-            lastName: ''
+            formIsVisible: false
         }
 
-        this.onInputChange = this.onInputChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.showForm = this.showForm.bind(this);
+        this.closeForm = this.closeForm.bind(this);
     }
 
-    onInputChange(fieldName) {
-        return (e) => {
-            this.setState({
-                [fieldName]: e.target.value
-            });
-        }
+    showForm() {
+        this.setState({formIsVisible: true});
     }
 
-    onSubmit(e) {
-        e.preventDefault();
-
-        const formData = encode({ 'form-name': FORM_NAME, ...this.state });
-        console.log(formData);
-
-        fetch('/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: formData
-        })
-            .then(() => console.log("Success!"))
-            .catch(console.log);
-
+    closeForm() {
+        this.setState({formIsVisible: false});
     }
 
     render() {
-        const { firstName, lastName } = this.state;
+        const {formIsVisible} = this.state;
 
         return (
-            <form name={FORM_NAME} action="/" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value={FORM_NAME} />
+            <Layout>
+                <h1>Hi, this is Home page</h1>
+                <p>Welcome Home :)</p>
                 <p>
-                    <StyledLabel htmlFor="firstName">First Name:</StyledLabel>
-                    <input
-                        type="text"
-                        id="firstName"
-                        name="firstName"
-                        value={firstName}
-                        onChange={this.onInputChange('firstName')}
-                    />
-                </p>
-                <p>
-                    <StyledLabel htmlFor="lastName">Last Name:</StyledLabel>
-                    <input
-                        type="text"
-                        id="lastName"
-                        name="lastName"
-                        value={lastName}
-                        onChange={this.onInputChange('lastName')}
-                    />
-                </p>
-                <p>
-                    <button type="submit" onClick={this.onSubmit}>
-                        Send
+                    <button
+                        onClick={this.showForm}
+                    >
+                        Open Form in Modal
                     </button>
                 </p>
-            </form>
+                <div style={{ display: formIsVisible ? 'block' : 'none'}}>
+                    <StyledModalOverflow>
+                        <StyledModal>
+                            <ModalForm
+                                onClose={this.closeForm}
+                             />
+                        </StyledModal>
+                    </StyledModalOverflow>
+                </div>
+            </Layout>
         );
     }
 }
 
-export default ModalForm;
+export default IndexPage;
