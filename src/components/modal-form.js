@@ -32,21 +32,21 @@ class ModalForm extends PureComponent {
         }
     }
 
-    onSubmit(e) {
-        e.preventDefault();
+    // onSubmit(e) {
+    //     e.preventDefault();
 
-        const formData = encode({ 'form-name': 'userFullName', ...this.state });
-        console.log(formData);
+    //     const formData = encode({ 'form-name': 'userFullName', ...this.state });
+    //     console.log(formData);
 
-        fetch('/', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: formData
-        })
-            .then(() => console.log("Success!"))
-            .catch(console.log);
+    //     fetch('/', {
+    //         method: 'POST',
+    //         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    //         body: formData
+    //     })
+    //         .then(() => console.log("Success!"))
+    //         .catch(console.log);
 
-    }
+    // }
 
     render() {
         const {firstName, lastName} = this.state;
@@ -75,7 +75,7 @@ class ModalForm extends PureComponent {
                     />
                 </p>
                 <p>
-                    <button type="submit" onClick={this.onSubmit}>
+                    <button type="submit">
                         Send
                     </button>
                 </p>
