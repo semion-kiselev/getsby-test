@@ -53,6 +53,7 @@ class ModalForm extends PureComponent {
 
         return (
             <form action="/" name="userFullName" method="post" data-netlify="true">
+                <input type="hidden" name="form-name" value="userFullName" />
                 <p>
                     <StyledLabel htmlFor="firstName">First Name:</StyledLabel>
                     <input
