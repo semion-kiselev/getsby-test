@@ -49,7 +49,7 @@ class ModalForm extends PureComponent {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: formData
         })
-            .then(() => console.log('Sent!'))
+            .then(() => this.props.onClose())
             .catch(console.log);
 
     }
