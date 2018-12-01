@@ -50,7 +50,7 @@ class ModalForm extends PureComponent {
         const {firstName, lastName} = this.state;
 
         return (
-            <form name="userFullName" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form action="/" name="userFullName" method="post" data-netlify="true">
                 <p>
                     <StyledLabel htmlFor="firstName">First Name:</StyledLabel>
                     <input
