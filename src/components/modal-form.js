@@ -35,8 +35,8 @@ class ModalForm extends PureComponent {
     onSubmit(e) {
         e.preventDefault();
 
-        // const formData = encode({ 'form-name': 'userFullName', ...this.state });
-        const formData = encode(this.state);
+        const formData = encode({ 'form-name': 'userFullName', ...this.state });
+        // const formData = encode(this.state);
         console.log(formData);
 
         fetch('/', {
@@ -50,7 +50,7 @@ class ModalForm extends PureComponent {
         const {firstName, lastName} = this.state;
 
         return (
-            <form name="userFullName" method="post" data-netlify="true">
+            <form name="userFullName" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
                 <p>
                     <StyledLabel htmlFor="firstName">First Name:</StyledLabel>
                     <input
@@ -72,7 +72,7 @@ class ModalForm extends PureComponent {
                     />
                 </p>
                 <p>
-                    <button onClick={this.onSubmit}>
+                    <button type="submit" onClick={this.onSubmit}>
                         Send
                     </button>
                 </p>
