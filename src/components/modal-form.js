@@ -36,7 +36,6 @@ class ModalForm extends PureComponent {
         e.preventDefault();
 
         const formData = encode({ 'form-name': 'userFullName', ...this.state });
-        // const formData = encode(this.state);
         console.log(formData);
 
         fetch('/', {
@@ -44,6 +43,9 @@ class ModalForm extends PureComponent {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             body: formData
         })
+            .then(() => console.log("Success!"))
+            .catch(console.log);
+
     }
 
     render() {
