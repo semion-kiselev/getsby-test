@@ -30,7 +30,7 @@ const Header = () => (
                 <Link
                     to="/about"
                     style={{
-                        'margin-left': 15,
+                        marginLeft: 15,
                         display: 'block',
                         color: 'white',
                         textDecoration: 'none',
@@ -41,13 +41,24 @@ const Header = () => (
                 <Link
                     to="/sections"
                     style={{
-                        'margin-left': 15,
+                        marginLeft: 15,
                         display: 'block',
                         color: 'white',
                         textDecoration: 'none',
                     }}
                 >
                     Sections
+                </Link>
+                <Link
+                    to="/search"
+                    style={{
+                        marginLeft: 15,
+                        display: 'block',
+                        color: 'white',
+                        textDecoration: 'none',
+                    }}
+                >
+                    Search
                 </Link>
             </div>
         </div>
