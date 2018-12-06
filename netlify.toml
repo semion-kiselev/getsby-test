@@ -1,7 +1,4 @@
-[Settings]
-
 [[redirects]]
     from = "/"
     to = "/en"
     status = 302
-    conditions = {Language = "en" }
