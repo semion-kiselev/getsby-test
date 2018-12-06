@@ -41,16 +41,16 @@ class IndexPage extends PureComponent {
 
     render() {
         const {formIsVisible} = this.state;
+        const {locale} = this.props.pageContext;
 
         return (
-            <Layout>
-                <h1>Hi, this is Home page</h1>
-                <p>Welcome Home :)</p>
+            <Layout locale={locale}>
+                <h1>{locale === 'ru' ? 'Это домашняя страница' : 'Hi, this is Home page with'}</h1>
                 <p>
                     <button
                         onClick={this.showForm}
                     >
-                        Open Form in Modal
+                        {locale === 'ru' ? 'Открыть форму' : 'Open Form in Modal'}
                     </button>
                 </p>
                 <div style={{ display: formIsVisible ? 'block' : 'none'}}>

@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import {StaticQuery, graphql} from 'gatsby';
 import Header from './header';
 
-const Layout = ({children}) => (
+const Layout = ({children, locale}) => (
     <StaticQuery
         query={graphql`
             query SiteTitleQuery {
@@ -27,7 +27,7 @@ const Layout = ({children}) => (
                 >
                     <html lang="en" />
                 </Helmet>
-                <Header />
+                <Header locale={locale} />
                 <div
                     style={{
                         margin: '0 auto',

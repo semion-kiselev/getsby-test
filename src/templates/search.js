@@ -43,9 +43,10 @@ class SearchPage extends PureComponent {
 
     render() {
         const {query, data} = this.state;
+        const { locale } = this.props.pageContext;
 
         return (
-            <Layout>
+            <Layout locale={locale}>
                 <h1>
                     Search...
                 </h1>

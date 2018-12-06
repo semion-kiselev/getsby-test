@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'gatsby';
 
-const Header = () => (
+const Header = ({locale}) => (
     <div
         style={{
             background: 'rebeccapurple',
@@ -18,17 +18,17 @@ const Header = () => (
         >
             <div style={{display: 'flex'}}>
                 <Link
-                    to="/"
+                    to={`/${locale}`}
                     style={{
                         display: 'block',
                         color: 'white',
                         textDecoration: 'none',
                     }}
                 >
-                    Home
+                    {locale === 'ru' ? 'Домой' : 'Home'}
                 </Link>
                 <Link
-                    to="/about"
+                    to={`/${locale}/about`}
                     style={{
                         marginLeft: 15,
                         display: 'block',
@@ -36,10 +36,10 @@ const Header = () => (
                         textDecoration: 'none',
                     }}
                 >
-                    About
+                    {locale === 'ru' ? 'О нас' : 'About'}
                 </Link>
                 <Link
-                    to="/sections"
+                    to={`/${locale}/sections`}
                     style={{
                         marginLeft: 15,
                         display: 'block',
@@ -47,10 +47,10 @@ const Header = () => (
                         textDecoration: 'none',
                     }}
                 >
-                    Sections
+                    {locale === 'ru' ? 'Секции' : 'Sections'}
                 </Link>
                 <Link
-                    to="/search"
+                    to={`/${locale}/search`}
                     style={{
                         marginLeft: 15,
                         display: 'block',
@@ -58,7 +58,7 @@ const Header = () => (
                         textDecoration: 'none',
                     }}
                 >
-                    Search
+                    {locale === 'ru' ? 'Поиск' : 'Search'}
                 </Link>
             </div>
         </div>

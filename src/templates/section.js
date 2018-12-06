@@ -19,9 +19,10 @@ const StyledSectionName = styled.span`
     text-transform: capitalize;
 `;
 
-const Section = (props) => console.log(props) || (
-    <Layout>
+const Section = (props) => (
+    <Layout locale={props.pageContext.locale}>
         <h1>Hi, this is "<StyledSectionName>{props.pageContext.section}</StyledSectionName>" Section page</h1>
+        <h2>{props.pageContext.locale}</h2>
         <StyledItemsRow>
             {
                 props.data.items.edges.map(({node}) => (

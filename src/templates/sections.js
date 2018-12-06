@@ -10,15 +10,15 @@ const StyledLink = styled(Link)`
     text-transform: uppercase;
 `;
 
-const IndexPage = ({data}) => (
-    <Layout>
-        <h1>Hi, this is Sections page</h1>
+const IndexPage = ({data, pageContext}) => (
+    <Layout locale={pageContext.locale}>
+        <h1>Hi, this is Sections page {pageContext.locale}</h1>
         <p>
             {
                 data.sections.edges.map(({node}) => (
                     <p>
                         <StyledLink
-                            to={`/${node.name}`}
+                            to={`/${pageContext.locale}/${node.name}`}
                             style={{
                                 'margin-left': 15,
                                 display: 'block',
