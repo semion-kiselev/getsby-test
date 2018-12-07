@@ -1,5 +1,5 @@
 / /ru 302 Language=ru
 / /en 302 Language=en
 / /en 302
-/ru/* /ru 302 Language=ru
-/en/* /en 302 Language=en
+/* /ru/index.html 302 Language=ru
+/* /en/index.html 302 Language=en
